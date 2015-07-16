@@ -14,7 +14,7 @@ int main()
     high=n-1;
     while(low<high)
     {
-        if(a[low]<a[high])
+        if(a[low]==0)
         {
             low++;
 
