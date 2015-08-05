@@ -1,5 +1,6 @@
 # Spaghetti-code Index
 Go Crazy<br/>
+<p>This repo consist of my implementation of coding problems from project Euler, r\dailyprogrammer(sub-reddit),GeeksForGeeks NPTEL(Programming and Data Structure), and other codes & stuff that I came up with.</p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Hanoi.c">Tower of Hanoi</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Value_Balance_tree.cpp">Check LST & RST are value Balanced</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Linked_list.c">Something on Linked list</a></p>
