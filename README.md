@@ -9,4 +9,5 @@ Go Crazy<br/>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_1.c">Pattern 1</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_2.c">Pattern 2</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_3.c">Pattern 3</a></p>
+<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_4.c">Pattern 4</a></p>
 
