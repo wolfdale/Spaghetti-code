@@ -6,4 +6,5 @@ Go Crazy<br/>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Linked_list.c">Something on Linked list</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/change_value.c">Update value of i without chainging Main()</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/BipartiteGraph.c">Check if Graph is Bipartite or not</a></p>
+<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_1.c">Pattern 1</a></p>
 
