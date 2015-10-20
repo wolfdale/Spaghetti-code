@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-/*NOTE IT IS A PROGRAM TO FIND HEIGHT OF TREE(NOT NODE) !!*/
+
 struct node
 {
     struct node *left;
