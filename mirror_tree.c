@@ -20,11 +20,11 @@ struct node *newnode(int item)
 
 }
 
-int mirroroftree(struct node * node)
+void mirroroftree(struct node * node)
 {
     if(node==NULL)
     {
-        return 0;
+        return ;
     }
     else{
         mirroroftree(node->left);
