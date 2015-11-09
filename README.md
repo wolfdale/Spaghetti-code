@@ -18,8 +18,10 @@ Go Crazy<br/>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/height_tree.c">Height of Tree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/mirror_tree.c">Mirror of Tree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/del_tree.c">Delete a Binary Tree</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/LevelOrder_Tarv.c">Level Order Tarversal </a><p>
-<p><b>ADVANCE C++ (STL)</b><p>
+<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/LevelOrder_Tarv.c">Level Order Tarversal </a></p>
+<p><b>C++</b></p>
+<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Exception.cpp">C++ Exceptions </a></p>
+<p><b>ADVANCE C++ (STL)</b></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vector.cpp">Vector Part 1 </a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vec1.cpp">Vector Part 2 </a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vec2.cpp">Vector Part 3 </a></p>
