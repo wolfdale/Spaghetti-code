@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(){
+
+  int x = 0x7568210;
+  char *p = (char*)&x;
+  if(*p==0x10)
+  {
+      printf("Little Endian");
+  }
+  else
+    {printf("Big Endian");}
+    return 0;
+}
