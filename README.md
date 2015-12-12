@@ -16,6 +16,7 @@ Go Crazy<br/>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_6.c">Pattern 6</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_7.c">Pattern 7</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_8.c">Pattern 8</a></p>
+<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/dimond_pat.c">Pattern 9</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Size_of_tree.c">Size of BinaryTree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/height_tree.c">Height of Tree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/mirror_tree.c">Mirror of Tree</a></p>
