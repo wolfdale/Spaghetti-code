@@ -19,6 +19,9 @@ public class String_Compare {
 			System.out.println("The = = operator compares references not values.");
 		}
 		
+		s4 = s3.concat(s4);
+		
+		System.out.println("Concat String : " + s4);
 		
 
 	}
