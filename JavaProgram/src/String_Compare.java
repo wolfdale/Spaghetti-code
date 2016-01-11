@@ -1,0 +1,18 @@
+
+public class String_Compare {
+
+	public static void main(String[] args) {
+		String s1 = new String("JAVA");
+		String s2 = new String("JAVA");
+		String s3 = new String("Java");
+		
+		System.out.println(s1.equals(s2)); //Print True
+		System.out.println(s2.equals(s3));//Prints false
+		System.out.println(s2.equalsIgnoreCase(s3)); //Print True Ignore case
+
+		
+		
+
+	}
+
+}
