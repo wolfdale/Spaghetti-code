@@ -23,6 +23,8 @@ public class String_Compare {
 		
 		System.out.println("Concat String : " + s4);
 		
+		System.out.println(s1.substring(0,2)); //Substring of String
+		
 
 	}
 
