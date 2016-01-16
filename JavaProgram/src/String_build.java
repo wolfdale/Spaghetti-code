@@ -26,6 +26,8 @@ public class String_build {
 		
 		System.out.println(s1);
 		
+		System.out.println(s1.capacity());
+		
 		
 		
 	}
