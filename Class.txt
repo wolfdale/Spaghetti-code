@@ -1,3 +1,12 @@
+Compilation Tool : valgrind
+
+valgrind --tool=memcheck --leak-check=yes ./a.out
+
+
+
+
+
+####################################################################################################################################
 http://www.as.utexas.edu/~lindner/random/who3.c
 
 http://man7.org/linux/man-pages/man5/utmp.5.html
