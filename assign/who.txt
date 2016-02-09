@@ -1,0 +1,34 @@
+Write a program to do the following, 
+a)	It should simulate the behavior of the  linux command “who”. That is it fetches the details of the users who have logged in the system and print their details. The details should include at least the user ids, username,  IP address from where logged in. Also note that one user can login multiple times.
+b)	While solving this, you need to use proper data structure to store the user details. Preferably use functions from Glib library.
+c)	 Note the following API’s that will help you fetch the raw   accounting information from the operating system’s records.
+a.	struct utmpx *getutxent(void); struct passwd *getpwnam(const char *name);
+Ref: http://pubs.opengroup.org/onlinepubs/007908775/xsh/endutxent.html
+http://pubs.opengroup.org/onlinepubs/009695399/functions/getpwnam.html
+utmpx structure (Apart from the links mentioned please search for more in google)
+Ref: http://pubs.opengroup.org/onlinepubs/009695399/basedefs/utmpx.h.html
+https://en.wikipedia.org/wiki/Utmp
+passwd structure
+Ref: http://pubs.opengroup.org/onlinepubs/009695399/basedefs/pwd.h.html
+The main loop might look like, 
+struct utmpx *ret;
+struct passwd *uentry;
+while((ret = getutxent())!=NULL)
+{
+	if (USER_PROCESS == ret->ut_type)
+{
+		/*fetch userid for this user*/
+		uentry = getpwnam(ret->ut_user);
+		if (NULL == uentry)
+		{
+				/*Could not fetch user id for this username(ret->ut_user)*/
+		}
+		else 
+		{
+				/*Add/Update Entries in your data structure*/
+		}
+}
+	/*Now display the populated details*/
+} 
+
+
