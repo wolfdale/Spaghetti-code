@@ -4,3 +4,13 @@ http://man7.org/linux/man-pages/man5/utmp.5.html
 
 http://manpages.ubuntu.com/manpages/hardy/man5/utmp.5.html
 
+http://pubs.opengroup.org/onlinepubs/009695399/basedefs/pwd.h.html
+
+http://pubs.opengroup.org/onlinepubs/009695399/basedefs/utmpx.h.html
+
+https://en.wikipedia.org/wiki/Utmp
+
+http://pubs.opengroup.org/onlinepubs/007908775/xsh/endutxent.html
+
+http://pubs.opengroup.org/onlinepubs/009695399/functions/getpwnam.html
+
