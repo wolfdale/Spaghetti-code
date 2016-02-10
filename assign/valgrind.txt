@@ -1,0 +1,86 @@
+What is Memory Leak?
+A memory leak is where allocated memory is not freed although it is never used again.
+•	In manual memory management this usually occurs because objects become unreachable without being freed.
+•	In tracing garbage collection, this happens when objects are reachable but not live.
+•	In reference counting, this happens when objects are referenced but not live. (Such objects may or may not be reachable.)
+Repeated memory leaks cause the memory usage of a process to grow without bound.
+
+Types of memory Error:
+
+1.	Still reachable :  A start-pointer or chain of start-pointers to the block is found. Since the block is still pointed at, the programmer could, at least in principle, have freed it before program exit. Because these are very common and arguably not a problem, Memcheck won’t report such blocks individually unless --show-reachable=yes is specified.
+2.	Definitely lost : This means that no pointer to the block can be found. The block is classified as "lost", because the programmer could not possibly have freed it at program exit, since no pointer to it exists. This is likely a symptom of having lost the pointer at some earlier point in the program. Such cases should be fixed by the programmer.
+3.	Indirectly lost : This means that the block is lost, not because there are no pointers to it, but rather because all the blocks that point to it are themselves lost. For example, if you have a binary tree and the root node is lost, all its children nodes will be indirectly lost. Because the problem will disappear if the definitely lost block that caused the indirect leak is fixed, Memcheck won’t report such blocks individually unless --show-reachable=yes is specified. Memcheck: a memory error detector .
+4.	Possibly lost : This means that a chain of one or more pointers to the block has been found, but at least one of the pointers is an interior-pointer. This could just be a random value in memory that happens to point into a block, and so you shouldn’t consider this ok unless you know you have interior-pointers.
+
+
+Valgrind is a memory mismanagement detector. It shows  memory leaks, deallocation errors, etc. Actually, Valgrind is a wrapper around a collection of tools that do many other things (e.g., cache profiling); 
+Here  we focus on the default tool, memcheck.
+Memcheck can detect:
+1.	Use of uninitialised memory
+2.	Reading/writing memory after it has been free'd
+3.	Reading/writing off the end of malloc'd blocks
+4.	Reading/writing inappropriate areas on the stack
+5.	Memory leaks -- where pointers to malloc'd blocks are lost forever
+6.	Mismatched use of malloc/new/new [] vs free/delete/delete []
+7.	Overlapping src and dst pointers in memcpy() and related functions
+8.	Some misuses of the POSIX pthreads API.
+The below source code shows the use of valgrind to detect the above mentioned memory problems.
+ 
+ 
+To create the executable for checking memory leaks, use the following command:
+ 
+To  check memory leaks run the executable using valgrind. The command used for running it in valgrind is :
+
+Memcheck is the default tool. The --leak-check option turns on the detailed memory leak detector.
+If --leak-check=full is specified, Memcheck will give details for each definitely lost or possibly lost block, including where it was allocated.
+It will give the following result.
+ 
+Now let us discuss the above result.
+LEAK SUMMARY:
+    definitely lost: 8 bytes in 2 blocks.
+     possibly lost: 0 bytes in 0 blocks.
+     still reachable: 0 bytes in 0 blocks.
+     suppressed: 0 bytes in 0 blocks.
+Here 8 byte  memory is definitely lost as we allocated memory for variable i and j but we haven’t freed them. To recover this memory leak we need to free the memory allocated for the variables using free. 
+The modified code is given below that show how to avoid this kind of memory leak. 
+ 
+Now compile the code again and run it using valgrind   as mentioned above.
+It will give the following result:
+ 
+As we allocated memory for two variables and we freed them , that’s why it is not showing any memory leak in this context. Now consider the  code below :
+ 
+
+Here we allocated memory for two variables and freed them, so we guess it will not give any memory leak. But that is not the actual case. It can be seen from the below picture:
+ 
+
+The reason behind that, it is giving 4 byte memory leak in leak summary is, before freeing the memory pointed to by j, j is updated to point to another memory block. That’s why the previously allocated memory is definitely lost.
+
+Now consider the following source codes  :
+   
+ 
+Now compile the code again and run it using valgrind  as mentioned above.
+It will give the following result:
+
+ 
+
+Here 16 byte  memory is definitely lost as we allocated memory for linked list and this memory is pointed out by a global variable, but it is not freed, and 128 byte memory is indirectly lost as we have not freed the memory. To recover this memory leak we need to free the memory allocated for the variables using free. 
+ 
+
+Now it will give the following result:
+ 
+
+
+Now consider the following source code:
+In this source code the main function calls a function “modify()”,  which modifies the head pointer and stores the head pointer location into a global pointer. Since global variable has file access , so it will give still reachable memory leak error.
+ 
+
+Now it will give the following result:
+ 
+
+To solve this problem we need to free all the memory allocated by every node as well as the global node variable. The modified code is as follows:
+ 
+
+The result will be as follows:
+ 
+
+
