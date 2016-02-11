@@ -1,0 +1,18 @@
+Write a program to do the following, 
+a)	It should simulate the behavior of the  linux command “ls”. That is it fetches the details of all files and directories from a given path and displays it along with the file attributes to the user.
+b)	While solving this, you need to use proper data structure to store the details for a file/directory. Preferably use functions from Glib library.
+c)	 Note the following API’s that will help you fetch the raw   accounting information from the operating system’s records.
+a.	opendir()
+b.	readdir() 
+c.	stat()
+Reference: 
+http://pubs.opengroup.org/onlinepubs/009695399/functions/opendir.html
+http://pubs.opengroup.org/onlinepubs/009695399/functions/readdir.html
+http://pubs.opengroup.org/onlinepubs/009695399/functions/stat.html
+d)	The basic steps will be 
+a.	Open a directory (to get the handle) using opendir
+b.	In a loop call readdir to read the directory entries
+i.	Handle cases for . and .. 
+ii.	Populate the stat structure by calling stat (here you need to use the absolute name of a file or directory)
+iii.	If you get a directory move down to this directory 
+iv.	If you get a file print the attributes of this file.
