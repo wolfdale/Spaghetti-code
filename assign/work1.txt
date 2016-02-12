@@ -1,0 +1,34 @@
+Two files are there   i) config.txt and ii) script.txt. The contents of both the files are as  follows, 
+
+config.txt
+
+fetch_compile_path= "E:\\Fetch_compile\\";
+prev_log_path= "E:\\ prev_log \\";
+UT_path= "E:\\ UT_path \\";
+Config_File= "E:\\ Config \\";
+
+script.txt
+
+mystring  fetch_compile_path="D:\\AUTOMATION\\Fetch_Compile\\";
+mystring  prev_log_path="D:\\AUTOMATION\\Old_Logs\\";
+mystring  UT_path="D:\\AUTOMATION\\UT\\";
+mystring  Config_File="D:\\AUTOMATION\\config.txt";
+	
+The paths of the  file  script.txt are to be replaced  with paths of  config.txt. There can be other lines in the file  script.txt. The replacement needs to be done in those lines, which starts with "mystring".
+So a new file   new_script.txt should be generated, with the contents as follows, 
+
+new_script.txt
+
+mystring  fetch_compile_path= "E:\\Fetch_compile\\";
+mystring  prev_log_path= "E:\\ prev_log \\";
+mystring  UT_path= "E:\\ UT_path \\";
+mystring  Config_File= "E:\\ Config \\";
+
+Here you need to use proper data structure to store the lines read from the file.  The lines are of arbitrary length.  Also you need to implement a search_and_replace function. Mention any assumptions that you make, while you are implementing this.
+
+It is recommended to use Glib Strings for your work.
+
+Ref: https://developer.gnome.org/glib/stable/glib-Strings.html
+
+
+
