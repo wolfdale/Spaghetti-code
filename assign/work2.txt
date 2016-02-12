@@ -1,0 +1,16 @@
+
+Implement a working version of the linux “history” command. You need to accept the commands (in this case simply strings) from the user and update a history file. The following operations should be supported, 
+a)	List all commands that were entered.
+b)	List a specified number of commands (history n)
+c)	List all commands with date and time stamp.
+d)	List  the last command (!!)
+e)	Ignore duplicate commands in history
+f)	Delete or clear history of commands 
+g)	Search with line number (! Line no)
+h)	Search with substring of the command 
+i)	Implement reverse searching of the command list. (See CTRL-R from the urls)
+Ref:
+http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/x1712.htm
+http://www.tecmint.com/history-command-examples/
+Note : In your case you need not have the run the commands. You need to have a program accepting user data.
+You need to store the user data in a file as well as in a suitable data structure, so that the above operations are efficient enough.
