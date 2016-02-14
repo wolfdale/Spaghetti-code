@@ -3,3 +3,4 @@ http://www.lemoda.net/c/recursive-directory/
 https://en.wikibooks.org/wiki/C_Programming/POSIX_Reference/dirent.h
 
 GLIB DOCUMENTATION: https://developer.gnome.org/glib/2.30/
+DESCRIPTION OF STRUCT_DIRENT : http://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html
