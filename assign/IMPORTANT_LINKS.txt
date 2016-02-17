@@ -8,3 +8,6 @@ GETTING FULL ABSOLUTE PATH OF DIRECTORY :http://stackoverflow.com/questions/1964
 CHECK IF FILE OR DIR : http://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
 READINF A FILE LINE BY LINE IN C: http://stackoverflow.com/questions/3501338/c-read-file-line-by-line
 SHELL COMMAND SIMULATION :http://www.cs.cornell.edu/Courses/cs414/2004su/homework/shell/shell.html
+
+GCOV :http://www.linux-mag.com/id/1409/
+      http://www.cs.odu.edu/~cs333/website-s11/Lectures/wbtesting/pages/stmtcov.html 
