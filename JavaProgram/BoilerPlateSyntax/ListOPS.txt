@@ -1,0 +1,55 @@
+#############################################################################
+APPEND TO LIST
+
+GList *list = NULL;
+list = g_list_append(list , word); 
+
+#############################################################################
+
+GList *search = NULL;
+search = g_list_find_custom(list,token, compare_string); //search the list using custom function
+
+/****************************************************************************
+*Function Name - compare_string
+
+*Description - compares two string to check if they are duplicate
+*Arguments - gconstpointer to stored value (value_1,value_2)
+*Returns - return 0 if both string matched (that is string are duplicate)
+	    return 1 if not matched (both string are unique)
+****************************************************************************/
+
+gint compare_string(gconstpointer value_1 ,gconstpointer value_2)
+{
+	if(strcmp((char*)value_1,(char*)value_2) == 0)
+	{
+		return 0; //return if string matched
+	}
+	else
+	{
+		return 1; //return if string not matched
+	}
+
+}
+
+
+#################################################################################
+DELETE LIST
+
+g_list_foreach(list, del_list,NULL);
+g_list_free(list);
+
+/****************************************************************************
+*Function Name - del_list
+*
+*Description -  to free each and ever node of list
+*Arguments - gpointer to value
+*Returns - it returns void
+
+****************************************************************************/
+void del_list(gpointer value , gpointer data)
+{
+	free(value);
+
+}
+
+
