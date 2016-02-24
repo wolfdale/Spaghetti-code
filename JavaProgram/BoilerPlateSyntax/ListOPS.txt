@@ -52,4 +52,24 @@ void del_list(gpointer value , gpointer data)
 
 }
 
+##############################################################################
+PRINT LIST
+
+g_list_foreach( list, print_list, NULL);
+
+/****************************************************************************
+*Function Name - print_list
+*
+*Description -  iterate over each node of list to print the element
+*Arguments - gpointer to value and gpointer to user_data (NULL)
+*Returns - return void
+****************************************************************************/
+
+void print_list( gpointer value, gpointer user_data )
+{
+
+	printf("%s\n",(char*)value);  //print the element in list
+ 
+}
+
 
