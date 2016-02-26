@@ -6,8 +6,7 @@ list = g_list_append(list , word);
 
 #############################################################################
 
-GList *search = NULL;
-search = g_list_find_custom(list,token, compare_string); //search the list using custom function
+
 
 /****************************************************************************
 *Function Name - compare_string
@@ -18,18 +17,7 @@ search = g_list_find_custom(list,token, compare_string); //search the list using
 	    return 1 if not matched (both string are unique)
 ****************************************************************************/
 
-gint compare_string(gconstpointer value_1 ,gconstpointer value_2)
-{
-	if(strcmp((char*)value_1,(char*)value_2) == 0)
-	{
-		return 0; //return if string matched
-	}
-	else
-	{
-		return 1; //return if string not matched
-	}
 
-}
 
 
 #################################################################################
@@ -46,16 +34,12 @@ g_list_free(list);
 *Returns - it returns void
 
 ****************************************************************************/
-void del_list(gpointer value , gpointer data)
-{
-	free(value);
 
-}
 
 ##############################################################################
 PRINT LIST
 
-g_list_foreach( list, print_list, NULL);
+
 
 /****************************************************************************
 *Function Name - print_list
@@ -65,11 +49,6 @@ g_list_foreach( list, print_list, NULL);
 *Returns - return void
 ****************************************************************************/
 
-void print_list( gpointer value, gpointer user_data )
-{
 
-	printf("%s\n",(char*)value);  //print the element in list
- 
-}
 
 
