@@ -6,16 +6,7 @@
 *Returns - it returns void
 
 ****************************************************************************/
-void file_close_check(int file_status)
-{
-	if( 0  != file_status )
-	{
-		printf("FILE not closed\n");
-		exit(FAILURE);
-		
-	}
-	return;
-}
+
 /****************************************************************************
 *Function Name - file_open_check
 *
@@ -24,15 +15,7 @@ void file_close_check(int file_status)
 *Returns - it returns void
 
 ****************************************************************************/
-void file_open_check(FILE *fp)
-{
-	if(NULL == fp)
-	{
-		printf("Not able to open file");
-		exit(FAILURE);
-	}
-	return;
-}
+
 
 ############################
 input = fopen(argv[1],"r");
