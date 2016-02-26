@@ -1,0 +1,15 @@
+write a program code for following requirements:
+
+1.Client recieves a filename form user and sends it to server.
+2.Server receives the filename,opens and reads the content
+3.Server tokenize the data and sorts it.
+4.server sends the sorted result to the client and client stores in the file.
+
+Do the following requirements:
+
+Write pseudocode with proper error handling.
+Create UTP.
+Implement and test the code using TCP and UDP.
+Write both iterative and concurrent server for TCP.
+Also write code using datagram sockets(UDP)
+Capture the defects with proper error severity
