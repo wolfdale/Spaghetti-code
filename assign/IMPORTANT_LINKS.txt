@@ -22,6 +22,12 @@ Socket Programming:
       http://csapp.cs.cmu.edu/2e/ch12-preview.pdf
       http://www.ece.tamu.edu/~reddy/ee602_00/socket_tutorial.pdf
       http://beej.us/guide/bgnet/output/html/multipage/index.html
+      http://www.cs.dartmouth.edu/~campbell/cs60/socketprogramming.html
+      http://www.ece.tamu.edu/~reddy/ee602_00/socket_tutorial.pdf
+      http://www.csd.uoc.gr/~hy556/material/tutorials/cs556-3rd-tutorial.pdf
+      http://shoe.bocks.com/net/
+      
+      
 
 
 
