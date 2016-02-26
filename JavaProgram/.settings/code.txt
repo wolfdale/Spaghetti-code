@@ -1,0 +1,54 @@
+void file_close_check(int file_status)
+{
+	if( 0  != file_status )
+	{
+		printf("FILE not closed\n");
+		exit(FAILURE);
+		
+	}
+	return;
+}
+
+
+void file_open_check(FILE *fp)
+{
+	if(NULL == fp)
+	{
+		printf("Not able to open file");
+		exit(FAILURE);
+	}
+	return;
+}
+
+
+gint compare_string(gconstpointer value_1 ,gconstpointer value_2)
+{
+	if(strcmp((char*)value_1,(char*)value_2) == 0)
+	{
+		return 0; //return if string matched
+	}
+	else
+	{
+		return 1; //return if string not matched
+	}
+
+}
+
+
+void print_list( gpointer value, gpointer user_data )
+{
+
+	printf("%s\n",(char*)value);  //print the element in list
+ 
+}
+
+g_list_foreach( list, print_list, NULL);
+
+void del_list(gpointer value , gpointer data)
+{
+	free(value);
+
+}
+
+GList *search = NULL;
+search = g_list_find_custom(list,token, compare_string); //search the list using custom function
