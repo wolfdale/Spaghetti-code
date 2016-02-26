@@ -1,0 +1,16 @@
+write a program code for following requirements
+
+1.Client take inputs as multiple filenames from command line.
+2.Last filename is an output file.
+3.Client sends the input filenames to the server
+4.Server reads the filename and opens the file.
+5.Server reads the contents of all the files and stores in a suitable data structure.
+6.Client recieves the content of all the files and writes onto the output file.
+
+Do the following requirements:
+
+Write pseudocode with proper error handling.
+Create UTP.
+Implement and test the code.
+Write both iterative and concurrent server for TCP.
+Capture the defects with proper error severity
