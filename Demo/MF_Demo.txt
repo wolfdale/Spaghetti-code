@@ -1,0 +1,42 @@
+#declare variables
+CC = gcc 
+CFLAGS = -c -Wall -g
+INCLUDE = -I../include/
+HEADER =../include/
+OBJ =../obj/
+SRC =../src/
+OUTPUT=../bin/
+INPUT=..
+GCOVFLAG = -ftest-coverage -fprofile-arcs
+ 
+$(OUTPUT)output: $(OBJ)utility.o $(OBJ)main.o $(OBJ)utility.o
+	$(CC) $(OBJ)utility.o $(OBJ)main.o `pkg-config --cflags --libs glib-2.0` -o output 
+	mv output ../bin/
+ 
+$(OBJ)utility.o: $(SRC)utility.c $(HEADER)header.h
+	$(CC) $(INCLUDE) $(CFLAGS) `pkg-config --cflags --libs glib-2.0` $(SRC)utility.c 
+	mv utility.o ../obj/
+
+$(OBJ)main.o: $(SRC)main.c $(HEADER)header.h
+	$(CC) $(INCLUDE)  $(CFLAGS) `pkg-config --cflags --libs glib-2.0` $(SRC)main.c
+	mv main.o ../obj/
+
+gcov_compile:
+	$(CC) $(GCOVFLAG) -g -o $(OUTPUT)output $(SRC)*.c $(INCLUDE) `pkg-config --cflags --libs glib-2.0`
+gcov_run:
+	$(OUTPUT)output $(INPUT)
+gcov:  
+	gcov $(SRC)main.c
+
+#clean all obj files 
+clean:
+	rm -f $(OBJ)*.o all
+	rm -f $(OUTPUT)output
+
+clean_gcov :
+	rm -f *.gcno all
+	rm -f *gcda all
+	rm -f *.c.gcov all
+
+val :
+	valgrind --tool=memcheck --leak-check=full --show-reachable=yes $(OUTPUT)output $(INPUT)
