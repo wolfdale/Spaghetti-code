@@ -3,7 +3,20 @@
 #include<stdlib.h>
 #include<string.h>
 #include<glib.h>
-
+void free_array(char** array)
+{
+ 
+  char **temp = array;
+  if ( NULL != array)
+  {
+    while(NULL  != *array)
+    {
+        free(*array);
+        array++;
+    }
+    free(temp);
+  }
+}
 int main()
 
 {
@@ -42,9 +55,10 @@ for(i=0;i<no_of_lines;i++)
 		printf("%ld\n", strlen(f_line_parts[j]));
 
 	}
-
+	free_array( f_line_parts );
 }
-
+free_array(f_lines);
+free(f_read);
 return(0);
 
 }
