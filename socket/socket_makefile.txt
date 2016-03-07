@@ -1,0 +1,82 @@
+
+G_DEBUG = gc-friendly
+G_SLICE = always-malloc
+
+export G_DEBUG
+export G_SLICE
+
+CC = gcc -Wall -g
+GLIB = `pkg-config --cflags --libs  glib-2.0`
+BIN = ../bin/
+SRC = ../src/
+OBJ = ../obj/
+INCLUDE = ../include/
+
+
+#input for valgrind
+INPUT?= 10.203.161.16 17771 ../files/file_in1.txt ../files/output.txt
+
+VALFLAGS = --tool=memcheck --leak-check=full --show-reachable=yes
+GCOVFLAGS = -ftest-coverage -fprofile-arcs
+THREADFLAG = -lpthread
+
+# the build target Executable
+TARGET_SERVER = server
+TARGET_CLIENT = client
+
+# build source files
+OBJSOURCE_SERVER = $(OBJ)server.o $(OBJ)server_utility.o 
+OBJSOURCE_CLIENT = $(OBJ)client.o $(OBJ)client_utility.o 
+
+
+# build dependencies
+
+DEP = $(INCLUDE)header.h 
+
+All: $(BIN)$(TARGET_SERVER) $(BIN)$(TARGET_CLIENT)
+
+#build main execuatble
+
+$(BIN)$(TARGET_SERVER): $(OBJSOURCE_SERVER) $(DEP) 
+	$(CC) -o $(BIN)$(TARGET_SERVER) $(OBJSOURCE_SERVER) -I$(INCLUDE) $(GLIB) $(THREADFLAG) 
+
+$(BIN)$(TARGET_CLIENT): $(OBJSOURCE_CLIENT) $(DEP) 
+	$(CC) -o $(BIN)$(TARGET_CLIENT) $(OBJSOURCE_CLIENT) -I$(INCLUDE) $(GLIB)
+
+#building object files
+
+$(OBJ)server.o: $(SRC)server.c $(INCLUDE)$(DEP) 
+	$(CC) -o $(OBJ)server.o -c $(SRC)server.c -I$(INCLUDE) $(GLIB) $(THREADFLAG) 
+
+$(OBJ)server_utility.o: $(SRC)server_utility.c $(INCLUDE)$(DEP) 
+	$(CC) -o $(OBJ)server_utility.o -c $(SRC)server_utility.c -I$(INCLUDE) $(GLIB) $(THREADFLAG)
+
+$(OBJ)client.o: $(SRC)client.c $(INCLUDE)$(DEP) 
+	$(CC) -o $(OBJ)client.o -c $(SRC)client.c -I$(INCLUDE) $(GLIB)
+
+$(OBJ)client_utility.o: $(SRC)client_utility.c $(INCLUDE)$(DEP) 
+	$(CC) -o $(OBJ)client_utility.o -c $(SRC)client_utility.c -I$(INCLUDE) $(GLIB)
+
+
+val_client: $(BIN)$(TARGET_CLIENT)
+	valgrind $(VALFLAGS) $(BIN)$(TARGET_CLIENT) $(INPUT)
+
+val_server: $(BIN)$(TARGET_SERVER)
+	valgrind $(VALFLAGS) $(BIN)$(TARGET_SERVER)
+
+coverage_server: $(SRC)server.c $(SRC)server_utility.c $(INCLUDE)$(DEP)
+	 $(CC) $(GCOVFLAGS) -o $(BIN)$(TARGET_SERVER) $(SRC)server.c $(SRC)server_utility.c -I$(INCLUDE) $(GLIB)
+
+coverage_client: $(SRC)client.c $(SRC)client_utility.c $(INCLUDE)$(DEP)
+	 $(CC) $(GCOVFLAGS) -o $(BIN)$(TARGET_CLIENT) $(SRC)client.c $(SRC)client_utility.c -I$(INCLUDE) $(GLIB)
+
+
+#clear all build files
+.PHONY: clean
+clean:
+	rm -f  $(OBJ)* $(BIN)*
+	rm -f ../make/*.gcno all
+	rm -f ../make/*.gcda all
+	rm -f ../make/*.gcov all
+
+
