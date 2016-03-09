@@ -1,26 +1,76 @@
-/****************************************************************************
-*Function Name - file_close_check
-*
-*Description -  checks if file closse or not
-*Arguments - file status to check if file is close or not
-*Returns - it returns void
 
-****************************************************************************/
-
+status  = file_open_check( input_file  ); // file open check
+	
+	if ( FAILURE  == status ) 
+	{
+		printf("Input file NOT Opened\n");
+		exit(FAILURE);
+	}
+	else 
+	{
+		printf("Input File Opened\n");
+	}
+	
 /****************************************************************************
 *Function Name - file_open_check
 *
 *Description -  check if file open correctly
 *Arguments - file pointer to file
-*Returns - it returns void
+*Returns - it returns SUCCESS if file opens correctly else return FAILURE
 
 ****************************************************************************/
 
+int file_open_check( FILE *fp )
+{
+	if( NULL == fp ) 
+	{
+		return FAILURE;
+	}
+	else 
+	{
+		return SUCCESS;
+	}
+}
 
-############################
-input = fopen(argv[1],"r");
-file_open_check(input);
-############################
-int file_status = fclose(out);
-file_close_check(file_status);
-############################
+__________________________________________________________________________________________________________________
+
+
+status = file_close_check ( fclose( input_file ) );  // file close check
+
+	
+	if ( FAILURE  == status ) 
+	{
+		printf("INput file NOT closed\n");
+		exit(FAILURE);
+	}
+	else 
+	{
+		printf("INput File closed\n");
+	}
+
+
+/****************************************************************************
+*Function Name - file_close_check
+*
+*Description -  checks if file closse or not
+*Arguments - file status to check if file is close or not
+
+*Returns - it returns SUCCESS if file closed  correctly else return FAILURE
+****************************************************************************/
+int file_close_check(int file_status)
+{
+	if( 0  != file_status )
+	{
+		return FAILURE;
+		
+	}
+	else
+	{
+		return SUCCESS;
+	}
+}
+
+
+
+
+
