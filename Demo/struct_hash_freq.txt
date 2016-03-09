@@ -1,0 +1,89 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <glib.h>
+
+
+struct data
+{
+	char* str;
+	int freq;
+};
+
+typedef struct data NODE;
+
+gint sorter ( gconstpointer a , gconstpointer b )
+{
+	NODE * dum1;
+	NODE * dum2;
+	dum1 = (NODE*)a;
+	dum2 = (NODE*)b;
+	if( (dum1 -> freq) > (dum2 -> freq) )
+	{
+		return 1;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+void print_list ( gpointer value , gpointer user_data )
+{
+	NODE* dum ;
+	dum = (NODE*) value;
+	printf( "%s\t%d", dum->str , dum -> freq );
+
+}
+void del_hash( gpointer key  ,gpointer val, gpointer user_data)
+{
+
+	NODE* del;
+	del = (NODE*)val;
+	free(del->str);
+	free(del);
+	free(key);
+} 
+int main( int argc , char * argv[])
+{
+	FILE *fp = NULL;
+	fp = fopen( argv[1] , "r");
+	NODE * dummy;
+
+	GHashTable * hash = g_hash_table_new( g_str_hash , g_str_equal );
+	char * line;
+	GList * list = NULL;
+	line = malloc( 0 * sizeof(*line)); 
+
+	while( fgets ( line , 256 , fp ) != NULL )
+	{
+		line[strcspn(line , "\n")] = 0;
+		printf("%s\n",line);
+		//dummy = (NODE*)malloc(sizeof(NODE));
+		//dummy -> str = strdup (line);
+	
+		//NODE* dum2;
+		dummy = g_hash_table_lookup ( hash , line );
+		if( dummy == NULL )
+		{	dummy = (NODE*)malloc(sizeof(NODE));
+			dummy -> str = strdup(line);
+			dummy->freq = 1 ;
+			g_hash_table_insert( hash , line , dummy );
+		}
+		else
+		{
+
+			dummy -> freq = (dummy->freq)++;
+			g_hash_table_insert( hash , line ,dummy );
+
+		}
+
+	}
+
+	list = g_hash_table_get_values( hash );
+	list = g_list_sort ( list , sorter );
+	g_list_foreach( list , print_list , NULL );
+	fclose(fp);
+	return 0;
+
+}
