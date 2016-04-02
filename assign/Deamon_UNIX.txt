@@ -1,0 +1,2 @@
+http://www.enderunix.org/docs/eng/daemon.php
+http://www.danielhall.me/2010/01/writing-a-daemon-in-c/
