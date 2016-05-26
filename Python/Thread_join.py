@@ -1,3 +1,6 @@
+#join() blocks indefinitely
+
+
 import threading
 import time
 import logging
