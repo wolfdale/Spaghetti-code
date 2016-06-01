@@ -1,0 +1,24 @@
+# LAMBDA FUNCTIONS
+
+#--------------------- Split and calculate Word Length
+length = map(lambda x : len(x) , 'Its raining Now'.split())
+
+#--------------------- Sum all the elments in list
+print reduce(lambda x,y: x+y , list_to_passed )
+
+#--------------------- Incrementator Function
+def inc(n);
+    return lambda x: n+x
+    
+g = inc(5) //Assigned to 'g' variable 
+
+print g(4) // Calling
+
+#---------------------- Filter Multiple of 3
+print reduce(lambda x : x % 3 , list_to_passed)
+
+#---------------------- Getting the Greater of Numbers
+f = lambda a,b : a if (a>b) else b
+reduce(f, [1,2,3,4,5,6])
+
+
