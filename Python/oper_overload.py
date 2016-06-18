@@ -5,6 +5,7 @@ class string_printer:
 	
 	def print_str(self,st):
 		print st
+		
 
 	
 	def __add__(self, other):
@@ -13,6 +14,7 @@ class string_printer:
 
 x = string_printer()
 x.st = "hell"
+x.print_str("Testing")
 y = string_printer()
 y.st = "bound"
 #Adding Objects
