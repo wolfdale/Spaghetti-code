@@ -4,6 +4,7 @@ class string_printer:
 	"""Prints the string"""
 	
 	def print_str(self,st):
+		st = self.st
 		print st
 		
 
