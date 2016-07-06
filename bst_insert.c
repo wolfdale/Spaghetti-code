@@ -37,9 +37,11 @@ struct node* BST_insert(struct node* node,int key)
 {
     if(node==NULL)
     {
+	//Inserting a Node in BST
         return(new_node(key));
 
     }
+    // Find Right Place (subtree) to insert node.
     if((node->data)>key)
     {
         node->left=BST_insert(node->left,key);
@@ -54,7 +56,7 @@ struct node* BST_insert(struct node* node,int key)
 int main()
 {
     struct node* root=NULL;
-    root=BST_insert(root,5);
+    root = BST_insert(root,5);
     BST_insert(root,10);
     BST_insert(root,24);
     BST_insert(root,4);
