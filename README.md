@@ -22,6 +22,7 @@ Go Crazy<br/>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/mirror_tree.c">Mirror of Tree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/del_tree.c">Delete a Binary Tree</a></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/LevelOrder_Tarv.c">Level Order Tarversal </a></p>
+<p><a herf="https://github.com/wolfdale/Spaghetti-code/blob/master/Python/rps.py">Rock Paper Scissors</a></p>
 <p><b>C++</b></p>
 <p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Exception.cpp">C++ Exceptions Part 1</a></p>
 <p><a href='https://github.com/wolfdale/Spaghetti-code/blob/master/exception_1.cpp'>C++ Exception Part 2</a></p>
