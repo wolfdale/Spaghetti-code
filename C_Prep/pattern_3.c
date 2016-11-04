@@ -1,3 +1,11 @@
+/*12345
+4321
+123
+21
+1
+*/
+
+
 #include<stdio.h>
 int main(){
 int i,j;
