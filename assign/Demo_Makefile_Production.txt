@@ -1,0 +1,61 @@
+
+
+	
+
+#########################################################################
+#       _________________________________________________________ 		 #
+#       |                                                    				        |   	                 #
+#       |                                                                                                              |                        #
+#       |               Make File For String Reverse Program            	        |                        #
+#       |                                                                                                              |                        #
+#       |_______________________________________________________|                        #
+#                                                                                                                                               #
+#########################################################################
+CC=gcc
+CFLAGS=-c -Wall -g -DSET_ERROR_LEVEL=3 -DSET_TRACE_LEVEL=2
+VFLAGS=--tool=memcheck --leak-check=yes --show-reachable=yes
+FLAGS=-o
+INCLUDE=-I../include/
+HEADER=../include/
+OBJ=../obj/
+SRC=../src/
+OUTPUT=../bin/
+
+$(OUTPUT)string_reverse: $(OBJ)main.o $(OBJ)function.o
+        $(CC) $(FLAGS) string_reverse $(OBJ)main.o $(OBJ)function.o
+        mv string_reverse ../bin/
+
+$(OBJ)main.o: $(SRC)main.c $(HEADER)header.h
+        $(CC) -DTRACING $(INCLUDE) $(CFLAGS) $(SRC)main.c
+        mv main.o ../obj/
+
+$(OBJ)function.o: $(SRC)function.c $(HEADER)header.h
+        $(CC) -DTRACING $(INCLUDE) $(CFLAGS) $(SRC)function.c
+        mv function.o ../obj/
+
+
+valgrind: $(OUTPUT)string_reverse
+        valgrind $(VFLAGS) ./$(OUTPUT)string_reverse string1 string2
+
+splint:
+        splint $(SRC)main.c $(SRC)function.c $(INCLUDE)
+
+gcov_compile:
+        $(CC) $(FLAGS) $(OUTPUT)string_reverse -fprofile-arcs -ftest-coverage $(SRC)main.c $(SRC)function.c $(INCLUDE)
+
+gcov_run:
+        $(OUTPUT)string_reverse
+        $(OUTPUT)string_reverse string1 string2
+
+gcov:
+        gcov $(SRC)main.c
+        gcov $(SRC)function.c
+
+gcov_clean:
+        rm *.gcda
+        rm *.gcno
+        rm *.gcov
+
+clean:
+        rm $(OBJ)*.o
+        rm $(OUTPUT)string_reverse
