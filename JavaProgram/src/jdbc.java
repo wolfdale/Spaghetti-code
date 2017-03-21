@@ -35,7 +35,7 @@ public class jdbc{
       e.printStackTrace();
    }
    finally{
-	   s	try{
+	  try{
          if(stmt!=null)
             stmt.close();
       }catch(SQLException se2){
