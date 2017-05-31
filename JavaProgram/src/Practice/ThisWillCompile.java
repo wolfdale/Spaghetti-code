@@ -1,3 +1,4 @@
+/* http : --> is a lable*/
 class Curiosity {
     public static void main (String[ ]  args)
     { 
