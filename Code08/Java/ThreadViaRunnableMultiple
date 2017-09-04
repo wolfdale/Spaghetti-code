@@ -1,0 +1,55 @@
+package com.api.mutithread;
+
+public class ThreadViaRunnableMultiple implements Runnable{
+	Thread t;
+	String name;
+	ThreadViaRunnableMultiple(String Tname){
+		name = Tname;
+		t = new Thread(this,name);
+		t.start();
+	}
+	
+	@Override
+	public void run() {
+		try {
+			for(int i=0;i<10;i++) {
+				Thread.sleep(1000);
+				System.out.print(t.getName());
+				System.out.println(" In Thread "+i);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] arg) {
+		ThreadViaRunnableMultiple tvr1 = new ThreadViaRunnableMultiple("T1");
+		ThreadViaRunnableMultiple tvr2 = new ThreadViaRunnableMultiple("T2");
+		ThreadViaRunnableMultiple tvr3 = new ThreadViaRunnableMultiple("T3");
+		ThreadViaRunnableMultiple tvr4 = new ThreadViaRunnableMultiple("T4");
+		ThreadViaRunnableMultiple tvr5 = new ThreadViaRunnableMultiple("T5");
+		ThreadViaRunnableMultiple tvr6 = new ThreadViaRunnableMultiple("T6");
+		ThreadViaRunnableMultiple tvr7 = new ThreadViaRunnableMultiple("T7");
+		try {
+			for(int i=0;i<10;i++) {
+				Thread.sleep(500);
+				System.out.println("Main Thread" + i);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			tvr1.t.join();
+			tvr2.t.join();
+			tvr3.t.join();
+			tvr4.t.join();
+			tvr5.t.join();
+			tvr6.t.join();
+			tvr7.t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Exit Main");
+	}
+	
+}
