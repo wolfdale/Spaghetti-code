@@ -9,3 +9,4 @@
 11:44 10/10/17 -> Lots of DS
 10:54 10/10/17 -> Lots of DS
 20:40 -> tree
+10:04 13/10/17 -> days of 100 algo
