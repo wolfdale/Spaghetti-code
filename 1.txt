@@ -14,3 +14,4 @@
 9:50 20/10/17-> Init 20D AL
 10:59 26/10/17 -> Day before strom
 10:21 28/10/17 ->WOD
+6:52 29/oct/17 -> NodeJS app Gone production
