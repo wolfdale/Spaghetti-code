@@ -15,3 +15,4 @@
 10:59 26/10/17 -> Day before strom
 10:21 28/10/17 ->WOD
 6:52 29/oct/17 -> NodeJS app Gone production
+10:14 1/11/17 -> Gcloud work
