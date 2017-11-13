@@ -20,3 +20,4 @@
 11:01 7/11/17 -> Concurrent API
 11:03 8/11/17 -> Cloud API
 11:20 9/11/17 -> Microservices with netflix
+10:35 13/11/17 -> LowMemt Cy6 Mex1 Malys1 Invi failOver
