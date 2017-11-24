@@ -23,4 +23,4 @@
 10:35 13/11/17 -> LowMemt Cy6 Mex1 Malys1 Invi failOver
 11:13 16/11/17 -> ??AWS
 10:46 17/11/17 -> ?Domain hyprk.com 
-
+11:30 24/11/17 -> nostga
