@@ -1,0 +1,293 @@
+Docker Commands
+---------------------
+docker run -p 127.0.0.1:1234:1234/tcp
+
+docker images 
+
+docker rm old-container-name
+
+docker ps -l (Last used container)
+
+docker commit <container-id> <imageName>:<tag>
+
+docker pull
+
+docker push
+
+docker rmi image-name:tag
+
+docker rmi image-id
+
+Docker volumes
+-Ephemeral 
+-Persistent
+
+//Consistent
+//Shared Folder (Sharing data between host and container)
+docker run -ti -v /path/:/shared-folder ubuntu bash
+ls /shared-folder
+touch /shared-folder/my-file
+
+//Ephemeral
+//Sharing data between containers (shared disk that exist only as long as they are being used)
+// Not shared with host
+1) docker run -ti -v /shared-data ubuntu bash
+
+2)Second container
+docker run -ti --volumes-from <container name> ubuntu bash 
+
+
+
+//Docker registery
+
+1) searching
+docker search ubuntu
+
+2) Log-in into docker registery(Just like github)
+
+docker login
+docker pull
+docker tag deb:sid name:v99
+docker push name/test:v55
+
+
+Docker Networking
+
+!)Exposing port
+2) Linking container
+
+//Exposing Ports Host-Container
+docker run --rm -ti -p 4567:4567 -p 45679:45679 --name echo-server ubuntu bash
+//Container to host
+user <IP-of-host> and <Port>
+
+//Dynamically allocate port of Host(No need to specify the host port)
+docker run --rm -ti -p 4567 -p 45679 --name echo-server ubuntu bash
+
+To get what ports the continer is using (inside) - Host will dynamically assign port to host side
+docker port <container name>
+
+TIP : Always fix port inside the container(Program running inside container)
+
+
+Linking Conatiners (Between Containers) No Host involved 
+
+docker run --rm -ti --name server ubuntu bash
+
+docker run --rm --link server --name client ubuntu bash
+(Check the /etc/hosts -- client container automatically knows the ip of server (if server container is down, link will break | hence use docker private network(Dynamic Linking)))
+
+Dynamic Linking
+1) you need to make networks in advance
+2) docker network create <network-name>
+3) Put container in this network
+
+4) docker run --rm -ti --net=example --name server ubuntu bash (Server)
+5) docker run --rm --link server --net=example --name client --net=example ubuntu bash (client and server in same network)
+
+-------------------------------------------
+DockerFile
+
+FROM debian:sid
+RUN apt-get -y update
+RUN apt-get install nano
+CMD ["/bin/nano", "/tmp/nano.txt"]
+
+docker build -t example/nanoer .
+
+FROM example/nanoer
+ADD notes.txt /notes.txt
+CMD ["/bin/nano", "/notes.txt"]
+
+
+you can run docker registery locally
+
+- Locally
+docker save
+docker load
+
+
+Docker commands
+docker info
+docker --version -> docker version
+docker version -> Docker client/server commands
+docker --help
+
+docker image ls
+docker container ls
+
+docker container run --help (Help command show options)
+
+
+docker conatiner run -d (Detached mode) jboss/wildfly
+docker container run -it (terminal interactive) jboss/wildfly
+
+docker container stop <container id or container name>
+
+docker container rm <container id or container name>
+
+docker conatner run -d --name webserver jboss/wildfly
+
+docker container run -ti --name webserver jboss/wildfly bash (it override the wildfly startup command by running command next to it ie bash)
+ 
+
+
+//Docker Port
+Random port (-P option)
+docker container run -d --name web -P jboss/wildfly
+
+//Specifying exact port
+docker container run -d --name web -p 8080:8080 jboss/wildfly
+
+
+//Volume (deploying any file/jar/war)
+
+docker container run -d --name web -p 8080:8080 -v `pwd`/webapps.war:/opt/jboss/wildfly/standalone/deployments/webapps.war jboss/wildfly
+
+
+
+
+
+
+
+
+Docker Images
+Docker Container
+
+Docker Compose (Define and Allows to run Multiple container)
+
+	-Configuration File for docker compose - docker-compise.yml & docker-compose.override.yml
+	- Single Command to manage all services
+
+Docker-Compose Logs
+docker-compose log -f
+
+Docker Compose Options
+------------------------
+-p (Create multiple isolated env on a host)
+
+- docker-compose.override.yml
+	it relpaces or extends value
+
+-f (Multiple compose file files) (File order matters)
+
+Docker Swam (Docker new feature v1.12)
+---------------------------------------
+- Natively manages cluster of Docker Engines called swam
+- Docker CLI to create a swam, deploy app and magnages swarm
+- Optional feature
+
+
+-Swarm Manager (Raft Consensus always odd number)
+-Swarm Worker (Nodes talk to each other via gossip protocol)
+
+-All communication happens over secure channel TLS and CA 
+
+Commands
+--------
+docker swarm init --listen-addr <ip>
+docker swarm join --token <worker_token> <manger>
+
+docker swarm join --manager --token <manager_token> --listen-addr <master2> <master1>
+
+Swarm Services ---
+---------------------
+Swarm Mode - Replicated services
+- docker service create --replicas 3 --name web jboss/wildfly
+
+Swarm mode : Routing Mesh
+----------------------------
+-Container-aware routing mesh.
+
+-Swarm mode allocate container into different docker engines spread over multiple machines.
+
+- Mesh network can route traffic from any host to a container, Reserve a swarm-wide ingress port and thn uses DNS based service discovery
+
+
+Container or node failure (Docker Swarm)
+
+if Container fails - 
+	Swarm replica < 3
+		it re-shedule a container to another node
+
+if Node fails
+	Swarm recognises replicas <
+		it re-schedule a all container in another node
+
+Docker Swarm Mode Scaling
+-------------------------
+inside docker swarm manager
+docker service scale <service_name> 6
+
+Docker swarm Mode Rolling updates
+-------------------------
+inside docker swarm manager
+docker service update web --image wildfly:2 --update-parallelism 2 --update-delay 10s
+
+
+Running Multiconainer in multi node cluser via docker Swarm
+-------------------------
+Multicontainer - via docker compose file
+
+on Swarm Manager 
+docker stack deploy --compose-file=docker-compose.yml webapp
+
+docker stack ls -> stack 
+docker servie ls -> all service in stack
+
+docker service log <servie name>
+or 
+docker cotainer log <container log>
+
+Docker swarm Node manintenance, lable, & global service
+--------------------------
+
+To pull node out of cluser
+docker node ls
+docker node update --availability drain <node_node>
+
+docker node update --availability pause <Nodename>
+
+container will be running and we can debug
+
+--------------------------
+Swarm Mode : Lable
+
+Deployment control 
+eg if some node has SSB then Database container must be running on those node
+
+use Docker_OPTS="--lable=ssd.drive"
+
+Use is while deploying service.
+---------------------------
+
+Swarm Mode : Global service (Ex promethesis)
+
+docker service create --mode=global 
+
+Portworx - Persistent Conatiner Volume
+
+prometheus - Conatiner Monitoring
+cAdvisor - Conatiner Monitoring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
