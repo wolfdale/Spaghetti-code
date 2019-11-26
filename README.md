@@ -3,38 +3,4 @@
 some less charitable programmers swear by the motto “If it was hard to write, it should be hard to read”</i></p><br/>
 Go Crazy<br/>
 <p>This repo consist of my implementation of coding problems from project Euler, r\dailyprogrammer(sub-reddit),GeeksForGeeks NPTEL(Programming and Data Structure), and other codes & stuff that I came up with.</p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Hanoi.c">Tower of Hanoi</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Value_Balance_tree.cpp">Check LST & RST are value Balanced</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Linked_list.c">Something on Linked list</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/change_value.c">Update value of i without chainging Main()</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/BipartiteGraph.c">Check if Graph is Bipartite or not</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_1.c">Pattern 1</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_2.c">Pattern 2</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_3.c">Pattern 3</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_4.c">Pattern 4</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_5.c">Pattern 5</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_6.c">Pattern 6</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_7.c">Pattern 7</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/pattern_8.c">Pattern 8</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/dimond_pat.c">Pattern 9</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Size_of_tree.c">Size of BinaryTree</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/height_tree.c">Height of Tree</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/mirror_tree.c">Mirror of Tree</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/del_tree.c">Delete a Binary Tree</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/LevelOrder_Tarv.c">Level Order Tarversal </a></p>
-<p><a herf="https://github.com/wolfdale/Spaghetti-code/blob/master/Python/rps.py">Rock Paper Scissors</a></p>
-<p><b>C++</b></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Exception.cpp">C++ Exceptions Part 1</a></p>
-<p><a href='https://github.com/wolfdale/Spaghetti-code/blob/master/exception_1.cpp'>C++ Exception Part 2</a></p>
-<p><b>ADVANCE C++ (STL)</b></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vector.cpp">Vector Part 1 </a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vec1.cpp">Vector Part 2 </a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vec2.cpp">Vector Part 3 </a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_algo.cpp">Vector & Algorithms Part 4</a><p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_vec4.c">Vector and STL functions Part 5</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_list.cpp">List Part 1</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/intro_list2.cpp">List Part 2</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/Stack_STL.cpp">Stack STL</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/blob/master/map_1.cpp">Map STL</a></p>
-<p><a href="https://github.com/wolfdale/Spaghetti-code/tree/master/CPP">More On Advance C++</a></p>
 
