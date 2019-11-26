@@ -11,7 +11,7 @@ private String getIdProperty(Class<?> entityClass) {
 		}
 	}
 	if ( idProperty == null ) {
-		throw new SearchException( "id field not found for: " + entityClass );
+		throw new SearchException("id field not found for: " + entityClass );
 	}
 	return idProperty;
 }
