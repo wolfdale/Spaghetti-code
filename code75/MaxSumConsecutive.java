@@ -9,7 +9,7 @@ class MaxSumConsecutive {
         int k = 4;
         int maxSum = -1000;
         int localSum = -11111;
-        // 8 is length of array
+        // 9 is length of array
         for (int i = 0;i<9-k+1; i++) {
             localSum = 0;
             for (int j = 0; j<k; j++) {
