@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JQUERY MODAL</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+ @import url(https://fonts.googleapis.com/css?family=Ubuntu);
+body{
+  text-align: center;
+  padding: 10% 50px;
+  background-color: #ffff;
+}
+h2{
+  font-family: 'Ubuntu', sans-serif;
+  color: black;
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+</style>  
+</head>
+
+<body>
+<div class="container">
+  <div class="data">
+    <label class="form-check-label">
+        <input type="checkbox" class="form-check-input"> <h2>I agree to the terms and conditions.</h2>
+    </label>
+    <br>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Submit</button>
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thank You !</h4>
+        </div>
+        <div class="modal-body">
+          <p>Thanks for accepting to T&C.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
