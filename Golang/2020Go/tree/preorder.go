@@ -19,6 +19,13 @@ func preOrderRecursive(root *Node) {
 }
 
 func main() {
+	// Tree Representation
+	//         1
+	//       /   \
+	//      2     3
+	//    / \    / \
+	//   4   5  6   7
+
 	root := &Node{1, nil, nil}
 	root.left = &Node{2, nil, nil}
 	root.right = &Node{3, nil, nil}
