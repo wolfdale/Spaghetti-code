@@ -8,14 +8,14 @@ type Node struct {
 	right *Node
 }
 
-func inorderRecursive(root *Node) {
+func postOrderRecursive(root *Node) {
 	if root == nil {
 		return
 	}
 
-	inorderRecursive(root.left)
+	postOrderRecursive(root.left)
+	postOrderRecursive(root.right)
 	fmt.Printf("%d \n", root.val)
-	inorderRecursive(root.right)
 }
 
 func main() {
@@ -34,6 +34,6 @@ func main() {
 	root.right.left = &Node{6, nil, nil}
 	root.right.right = &Node{7, nil, nil}
 
-	fmt.Println("Inorder Traversal: ")
-	inorderRecursive(root)
+	fmt.Println("Post Order Traversal: ")
+	postOrderRecursive(root)
 }
