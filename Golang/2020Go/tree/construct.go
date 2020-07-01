@@ -8,36 +8,6 @@ type Node struct {
 	right *Node
 }
 
-func heightOfTree(root *Node) int {
-	if root == nil {
-		return 0
-	}
-
-	var left = heightOfTree(root.left)
-	var right = heightOfTree(root.right)
-
-	if left > right {
-		return left + 1
-	} else {
-		return right + 1
-	}
-}
-
-func printLevel(root *Node, h int) {
-	if root == nil {
-		return
-	}
-
-	if h == 1 {
-		fmt.Printf("%d ", root.val)
-		return
-	}
-	if h > 1 {
-		printLevel(root.left, h-1)
-
-		printLevel(root.right, h-1)
-	}
-}
 
 func levelOrder(root *Node) {
 	if root == nil {
@@ -63,7 +33,7 @@ func main() {
 	//   20  80  110 200
 	//  /  \
 	// 10  30
-
+    
 	root := Node{100, nil, nil}
 	root.left = &Node{50, nil, nil}
 	root.right = &Node{150, nil, nil}
